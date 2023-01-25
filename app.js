@@ -1,8 +1,12 @@
 const express = require("express");
 const app = express();
 
-app.get("/", (req, res) => {
-  res.send("aziz dalbaeb");
-});
+//routes
+const { getItems } = require("./routes/item");
 
-app.listen(3000);
+app.get("/", getItems);
+
+const port = 4000;
+app.listen(port, () => {
+  console.log(`Listening on port ${port}...`);
+});
